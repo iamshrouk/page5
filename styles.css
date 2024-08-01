@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* خلفية بيضاء */
+    display: flex;
+    justify-content: center; /* توسيط المحتوى أفقيًا في منتصف الصفحة */
+    align-items: center; /* توسيط المحتوى عموديًا في منتصف الصفحة */
+    height: 100vh; /* ملء كامل الشاشة */
+}
+
+.container {
+    text-align: left; /* محاذاة النصوص إلى اليسار */
+    padding-left: 20px; /* مسافة من اليسار */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: rgba(36, 34, 30, 1);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+}
+
+.icons {
+    display: flex;
+    gap: 40px; /* المسافة بين الأيقونات */
+}
+
+.icon {
+    display: inline-block;
+    position: relative; /* ضروري لتحديد موقع الخط الأحمر */
+}
+
+.icon a {
+    text-decoration: none;
+    color: rgba(110, 109, 107, 1); /* لون النص الافتراضي */
+    font-size: 18px;
+    position: relative; /* ضروري لوضع الخط الأحمر أسفل النص */
+    margin-bottom: 5px; /* مسافة أسفل النص */
+}
+
+.icon a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: transparent; /* لون الخط الأحمر */
+    position: absolute;
+    bottom: -5px; /* المسافة بين النص والخط الأحمر */
+    left: 0;
+    right: 0;
+    transition: background-color 0.3s; /* تأثير تدرج اللون */
+}
+
+.icon.active a {
+    color: rgba(135, 30, 53, 1); /* لون النص عند التحديد */
+}
+
+.icon.active a::after {
+    background-color: rgba(135, 30, 53, 1); /* لون الخط الأحمر عند التحديد */
+}
+
+/* تنسيق النموذج */
+.form {
+    margin-top: 20px; /* مسافة من الأيقونات */
+    display: flex;
+    flex-wrap: wrap; /* لضمان تنسيق الحقول بشكل جيد عند تغيير الحجم */
+    gap: 30px; /* المسافة بين الحقول */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* ترتيب الحقول عموديًا */
+    width: calc(50% - 15px); /* عرض الحقل لتناسب نصف العرض مع المسافة بين الحقول */
+}
+
+.form-group label {
+    margin-bottom: 5px; /* مسافة أسفل التسمية */
+    
+    color:  rgba(36, 34, 30, 1);
+
+}
+
+.form-group input {
+    padding: 8px; /* تقليص التباعد داخل الحقل */
+    font-size: 14px; /* تقليص حجم النص داخل الحقل */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* عرض الحقل لملء المساحة المتاحة */
+    height: 50px; /* تحديد ارتفاع الحقل */
+    box-sizing: border-box; /* للتأكد من أن padding و border يتم حسابهما ضمن العرض الإجمالي */
+    background-color: transparent; /* لون خلفية افتراضي للمربعات النصية */
+    transition: background-color 0.3s; /* تأثير تدرج اللون */
+    color: rgba(86, 85, 82, 1);
+
+}
+
+/* جعل لون خلفية المربعات النصية مطابقًا للون الخط الأحمر */
+.icon.active ~ .form .form-group input {
+    background-color: rgba(135, 30, 53, 1);
+}
+/* إضافة تنسيق للحاوية التي تحتوي على الزر */
+.update-button-container {
+    margin-top: 20px; /* مسافة من نموذج الإدخال */
+    text-align: center; /* توسيط الزر داخل الحاوية */
+}
+
+/* تنسيق الزر */
+.update-button {
+    background-color: rgba(135, 30, 53, 1); /* لون الخلفية نبيتي */
+    color: #fff; /* لون النص أبيض */
+    border: none; /* إزالة الحدود */
+    border-radius: 4px; /* زوايا دائرية */
+    padding: 10px 20px; /* التباعد الداخلي */
+    font-size: 16px; /* حجم الخط */
+    cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
+    transition: background-color 0.3s; /* تأثير تدرج اللون */
+}
+
+/* تأثير عند مرور الماوس فوق الزر */
+.update-button:hover {
+    background-color: rgba(135, 30, 53, 0.8); /* لون الخلفية عند التمرير */
+}
